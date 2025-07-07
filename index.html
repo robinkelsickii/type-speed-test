@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Type Speed Tester</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div>
-      <h1>Type Speed Test</h1>
-      <p>Type the text you see below as fast as you can:</p>
-      <p id="text-to-type"></p>
-      <textarea id="user-input" rows="4" cols="50"></textarea>
+    <div class="content">
+      <h1 class="page-title">Type Speed Test</h1>
+      <p class="test-timer"></p>
+      <p class="instructions">
+        Type the text you see below as fast as you can:
+      </p>
+      <p class="text-to-type"></p>
+      <textarea class="user-input" rows="4" cols="50"></textarea>
+      <p class="user-output"></p>
+      <p class="status-alert"></p>
     </div>
     <script src="script.js"></script>
   </body>
