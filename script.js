@@ -11,20 +11,23 @@ fetch('typing_prompts.json')
     const randomKey = keys[Math.floor(Math.random() * keys.length)];
     const randomPrompt = data[randomKey];
     textToType.textContent = randomPrompt.text;
+    readTextToType();
   })
   .catch((error) => console.error('Error loading JSON:', error));
 
 let testStarted = false;
 let startTime;
+let correctText = [];
 
 readTextToType = () => {
-  let correctText = textToType.textContent.split('');
+  correctText = textToType.textContent.split('');
   textToType.textContent = '';
   correctText.forEach((char) => {
     const span = document.createElement('span');
     span.textContent = char;
     textToType.appendChild(span);
   });
+  return correctText;
 };
 
 userInput.addEventListener('keydown', (e) => {
@@ -51,4 +54,16 @@ userInput.addEventListener('keydown', (e) => {
 
 userInput.addEventListener('input', () => {
   console.log('User input:', userInput.value);
+  const userText = userInput.value.split('');
+  const spans = textToType.querySelectorAll('span');
+
+  for (let i = 0; i < spans.length; i++) {
+    if (userText[i] == null) {
+      spans[i].className = '';
+    } else if (userText[i] === correctText[i]) {
+      spans[i].className = 'correct';
+    } else {
+      spans[i].className = 'incorrect';
+    }
+  }
 });

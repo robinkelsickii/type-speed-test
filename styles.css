@@ -8,3 +8,11 @@
   font-size: 2em;
   margin-bottom: 0.5em;
 }
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
